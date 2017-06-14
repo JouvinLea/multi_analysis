@@ -1,0 +1,400 @@
+general:
+ source_name: "Em_Gal"
+ #sourde_name_skycoord: "SgrA*"
+ sourde_name_skycoord:
+  ra: 267.70599365
+  dec: -25.66312218
+ config_directory: '/Users/jouvin/Desktop/these/FITS_DATA/HAP-FR/Prod15_4_stereo/new_data'
+ make_data_outdir: True
+ config_name: 'ash_stereo_thsq64'
+ #bkg_model_directory: "/Users/jouvin/Desktop/these/test_Gammapy/script/modelfond/HAP-FR/Prod15_4_stereo/ash_north_stereo/coszenbinning_zen__0_34_49_61_72_16binE"
+ #name_method_fond: "coszenbinning_zen_0_34_49_61_72"
+ bkg_model_directory: "/Users/jouvin/Desktop/these/test_Gammapy/script/modelfond/HAP-FR/Prod15_4_stereo/ash_stereo/coszenbinning_zen__0_34_49_61_72_26binE"
+ name_method_fond: "coszenbinning_zen_0_34_49_61_72_26binE"
+
+ #use_list_obs=True si on veut utiliser la methode ou on donne une list d obsrvation pour creer le data set
+ use_list_obs: False
+ use_list_obs_file: True
+ obs_file: "list_run_norm_Em_Gal.txt"
+ nobs: 508
+ exclusion_mask: 'exclusion_large.fits'
+ image_size: 250
+ use_cube: False
+ use_etrue: False
+
+exposure:
+ for_integral_flux: False
+
+energy binning:
+ #Emin: 0.5
+ #Emax: 30
+ #nbin: 10
+ Emin: 0.5
+ Emax: 100
+ #nbin: 5
+ #Emin: 0.5
+ #Emax: 10
+ #Emin: 0.5
+ #Emax: 12
+ nbin: 1
+energy true binning:
+ Emin: 0.1
+ Emax: 100
+ nbin: 80
+ #Emin: 0.5
+ #Emax: 40
+ #nbin: 20
+
+param_SgrA:
+ name: "SgrA"
+ sourde_name_skycoord2:
+  l_gal: 359.9442
+  b_gal: -0.0462
+ sourde_name_skycoord: "SgrA*"
+param_G0p9:
+ name: "G0.9"
+ sourde_name_skycoord:
+  l_gal: 0.872
+  b_gal: 0.076
+
+param_fit:
+ freeze_bkg: False
+ use_EM_model: False
+ CS:
+  ampl_init: 1e-9
+  ampl_frozen: False
+  threshold_map: 30
+ gauss_SgrA:
+  name: "GC source"
+  fit: True
+  fwhm_init: 1
+  ampl_init: 1e-9
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+ gauss_G0p9:
+  name: "G0.9"
+  fit: True
+  fwhm_init: 1
+  ampl_init: 1e-9
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+ #Si on veut inverser CS et LS invert_CS_LS vaut True
+ invert_CS_LS: True
+ Large scale:
+  name: "Asym Large Scale"
+  fit: True
+  fwhm_init: 150
+  ampl_init: 1e-8
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+  ellip_init: 0.8
+  ellip_frozen: True
+ Gauss_to_CS:
+  name: "Gauss*Templ_CS"
+  fit: True
+  fwhm_init: 100
+  ampl_init: 1
+  fwhm_frozen: True
+  ampl_frozen: True
+  xpos_frozen: True
+  ypos_frozen: True
+ central_gauss:
+  name: "Central Component"
+  fit: True
+  fwhm_init: 15
+  ampl_init: 1e-8
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+ arc source:
+  l: 0.130
+  b: -0.139
+  name: "Arc source"
+  fit: True
+  fwhm_init: 1
+  ampl_init: 1e-9
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+ SgrB2:
+  l: 0.66
+  b: -0.03
+  name: "SgrB2"
+  fit: True
+  fwhm_init: 1
+  ampl_init: 1e-9
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+
+param_fit_iteratifenergy:
+ freeze_bkg: False
+ use_EM_model: False
+ CS:
+  ampl_init: 1e-8
+  ampl_frozen: False
+  threshold_map: 30
+ gauss_SgrA:
+  name: "GC source"
+  fit: True
+  fwhm_init: 1
+  ampl_init: 1e-8
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+ gauss_G0p9:
+  name: "G0.9"
+  fit: True
+  fwhm_init: 1
+  ampl_init: 1e-8
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+ #Si on veut inverser CS et LS invert_CS_LS vaut True
+ invert_CS_LS: False
+ Large scale:
+  name: "Asym Large Scale"
+  fit: True
+  fwhm_init: 150
+  ampl_init: 1e-7
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+  ellip_init: 0.8
+  ellip_frozen: True
+ Gauss_to_CS:
+  name: "Gauss*Templ_CS"
+  fit: True
+  fwhm_init: 100
+  ampl_init: 1
+  fwhm_frozen: True
+  ampl_frozen: True
+  xpos_frozen: True
+  ypos_frozen: True
+ central_gauss:
+  name: "Central Component"
+  fit: False
+  fwhm_init: 15
+  ampl_init: 1e-8
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+ arc source:
+  l: 0.130
+  b: -0.139
+  name: "Arc source"
+  fit: True
+  fwhm_init: 1
+  ampl_init: 1e-9
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+ SgrB2:
+  l: 0.66
+  b: -0.03
+  name: "SgrB2"
+  fit: False
+  fwhm_init: 1
+  ampl_init: 1e-9
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: False
+  ypos_frozen: False
+
+param_fit_morpho:
+ freeze_bkg: False
+ Em_gal: True
+ CS:
+  ampl_init: None
+  ampl_frozen: False
+  threshold_map: 30
+ gauss_SgrA:
+  name: "GC source"
+  fit: True
+  fwhm_init: 3
+  ampl_init: None
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+ gauss_G0p9:
+  name: "G0.9"
+  fit: True
+  fwhm_init: 1
+  ampl_init: None
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+ #Si on veut inverser CS et LS invert_CS_LS vaut True
+ invert_CS_LS: True
+ Large scale:
+  name: "Asym Large Scale"
+  fit: True
+  #fwhm_init: None
+  fwhm_init: 100
+  #fwhm_min: None
+  fwhm_min: 70
+  ampl_init: None
+  fwhm_frozen: False
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+  ellip_init: False
+  #ellip_init: 0.8
+  ellip_frozen: False
+ Gauss_to_CS:
+  name: "Gauss*Templ_CS"
+  fit: True
+  #fwhm_init: None
+  fwhm_init: 150
+  #fwhm_min: None
+  fwhm_min: 70
+  ampl_init: 1
+  fwhm_frozen: False
+  ampl_frozen: True
+  xpos_frozen: True
+  ypos_frozen: True
+ invert_CC_LS: True
+ central_gauss:
+  name: "Central Component"
+  fit: True
+  fwhm_init: None
+  ampl_init: None
+  fwhm_frozen: False
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+ arc source:
+  l: 0.130
+  b: -0.139
+  name: "Arc source"
+  fit: True
+  fwhm_init: 1
+  ampl_init: None
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: False
+  ypos_frozen: False
+ SgrB2:
+  l: 0.66
+  b: -0.03
+  name: "SgrB2"
+  fit: True
+  fwhm_init: 1
+  ampl_init: None
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+
+param_fit_HESS:
+ #law: ["EXP", "PWL"]
+ law: ["EXP"]
+ PWL:
+  phi0: 2.93e-11
+  gamma: 2.626
+ EXP:
+  phi0: 2.55e-12
+  gamma: 2.14
+  E_c: 10.7
+
+param_fit_3D:
+ extraction_region: 250
+ freeze_bkg: True
+ use_EM_model: False
+ CS:
+  ampl_init: 1e-9
+  ampl_frozen: False
+  threshold_map: 30
+ gauss_SgrA:
+  name: "GC source"
+  fit: True
+  fwhm_init: 1
+  ampl_init: 1e-9
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+ gauss_G0p9:
+  name: "G0.9"
+  fit: True
+  fwhm_init: 1
+  ampl_init: 1e-9
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+ #Si on veut inverser CS et LS invert_CS_LS vaut True
+ invert_CS_LS: False
+ Large scale:
+  name: "Asym Large Scale"
+  fit: True
+  fwhm_init: 150
+  ampl_init: 1e-8
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+  ellip_init: 0.8
+  ellip_frozen: True
+ Gauss_to_CS:
+  name: "Gauss*Templ_CS"
+  fit: True
+  fwhm_init: 100
+  ampl_init: 1
+  fwhm_frozen: True
+  ampl_frozen: True
+  xpos_frozen: True
+  ypos_frozen: True
+ central_gauss:
+  name: "Central Component"
+  fit: True
+  fwhm_init: 15
+  ampl_init: 1e-8
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+ arc source:
+  l: 0.130
+  b: -0.139
+  name: "Arc source"
+  fit: True
+  fwhm_init: 1
+  ampl_init: 1e-9
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+ SgrB2:
+  l: 0.66
+  b: -0.03
+  name: "SgrB2"
+  fit: True
+  fwhm_init: 1
+  ampl_init: 1e-9
+  fwhm_frozen: True
+  ampl_frozen: False
+  xpos_frozen: True
+  ypos_frozen: True
+  
+param_plot:
+ imax: 4
+ #imax: 9
+ iteratif_model: True
+ iteratif_energy: False
